@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <title>
+      Simple calculator
+    </title>
+  </head>
+  <body>
+    <div>
+      <h1>Calculate</h1>
+    </div>
+    <div>
+      <label>Enter First Number: </><input type="text" id="firstNumber" />
+    </div>
+    <div>
+      <label>Enter Second Number: </label><input type="text" id="secondNumber" />
+    </div>
+    <div>
+      <h4 id="ans"></h4>
+    </div>
+    <div>
+      <button id="Add" onclick="add()">Add</button>
+    </div>
+
+
+    <script>
+      function add() { 
+        let firstNumber = document.getElementById('firstNumber').value
+        let secondNumber = document.getElementById('secondNumber').value;
+
+        let answer = parseInt(firstNumber) + parseInt(secondNumber);
+      
+        document.getElementById('ans').innerText = answer;
+      }
+    </script>
+  </body>
+</html>
