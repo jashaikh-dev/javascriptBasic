@@ -19,6 +19,7 @@
     </div>
     <div>
       <button id="Add" onclick="add()">Add</button>
+      <button id="Sub" onclick="sub()">Sub</button>
     </div>
 
 
@@ -30,6 +31,14 @@
         let answer = parseInt(firstNumber) + parseInt(secondNumber);
       
         document.getElementById('ans').innerText = answer;
+      }
+      function sub() {
+        let firstNumber = document.getElementById('firstNumber').value 
+        let secondNumber = document.getElementById('secondNumber').value
+
+        let answer = parseInt(firstNumber) - parseInt(secondNumber)
+
+        document.getElementById('ans').innerText = answer
       }
     </script>
   </body>
