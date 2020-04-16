@@ -20,17 +20,20 @@
     <div>
       <button id="Add" onclick="add()">Add</button>
       <button id="Sub" onclick="sub()">Sub</button>
+      <button id="Division" onclick="div()">Division</button>
+      <button id="Multiply" onclick="mul()">Multiply</button>
     </div>
 
 
     <script>
+      var answerHeading = document.getElementById('ans')
       function add() { 
         let firstNumber = document.getElementById('firstNumber').value
         let secondNumber = document.getElementById('secondNumber').value;
 
         let answer = parseInt(firstNumber) + parseInt(secondNumber);
       
-        document.getElementById('ans').innerText = answer;
+        answerHeading.innerText = answer;
       }
       function sub() {
         let firstNumber = document.getElementById('firstNumber').value 
@@ -38,7 +41,24 @@
 
         let answer = parseInt(firstNumber) - parseInt(secondNumber)
 
-        document.getElementById('ans').innerText = answer
+        answerHeading.innerText = answer
+      }
+      function div() {
+        let firstNumber = document.getElementById('firstNumber').value
+        let secondNumber = document.getElementById('secondNumber').value
+        let answer = parseInt(firstNumber) / parseInt(secondNumber)
+
+        answerHeading.innerText = answer 
+      }
+      
+      function mul() {
+        let answer = getIntegerValue('firstNumber') * getIntegerValue('secondNumber')
+        answerHeading.innerHTML = answer
+      }
+
+      // moving towards more reusable code
+      function getIntegerValue(id){
+        return parseInt(document.getElementById(id).value)
       }
     </script>
   </body>
