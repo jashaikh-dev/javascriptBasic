@@ -33,25 +33,35 @@
 <body>
   <h2>A simple calculator</h2>
   <div id="calculator-div">
-    <input type="number"/>
+    <input id="number-input" type="number"/>
     <div>
-      <button class="number-button">9</button>
-      <button class="number-button">8</button>
-      <button class="number-button">7</button>
+      <button data-key="9" class="number-button">9</button>
+      <button data-key="8" class="number-button">8</button>
+      <button data-key="7" class="number-button">7</button>
     </div>
     <div>
-      <button class="number-button">6</button>
-      <button class="number-button">5</button>
-      <button class="number-button">4</button>
+      <button data-key="6" class="number-button">6</button>
+      <button data-key="5" class="number-button">5</button>
+      <button data-key="4" class="number-button">4</button>
     </div>
     <div>
-      <button class="number-button">3</button>
-      <button class="number-button">2</button>
-      <button class="number-button">1</button>
+      <button data-key="3" class="number-button">3</button>
+      <button data-key="2" class="number-button">2</button>
+      <button data-key="1" class="number-button">1</button>
     </div>
   </div>
+  <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
   <script>
     // a simple calculator.
+    let $inputNumber = $('#number-input')
+
+
+    $(".number-button").click(function(e) {
+      const value = this.attributes['data-key'].value
+      $inputNumber.val($inputNumber.val()+value)
+    });
+
+    
   </script>
 </body>
 </html>
