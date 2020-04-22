@@ -20,7 +20,7 @@
       text-align: right;
       font-size: 24px
     }
-    .number-button {
+    .number-button, .equal-btn, .op-button {
       font-size: 24px;
       border-radius: 5px;
       width: 50px;
@@ -41,45 +41,65 @@
       <button data-key="9" class="number-button">9</button>
       <button data-key="8" class="number-button">8</button>
       <button data-key="7" class="number-button">7</button>
-      <button data-key="+" class="number-button">+</button>
+      <button data-key="+" class="op-button">+</button>
     </div>
     <div>
       <button data-key="6" class="number-button">6</button>
       <button data-key="5" class="number-button">5</button>
       <button data-key="4" class="number-button">4</button>
-      <button data-key="-" class="number-button">-</button>
+      <button data-key="-" class="op-button">-</button>
       
     </div>
     <div>
       <button data-key="3" class="number-button">3</button>
       <button data-key="2" class="number-button">2</button>
       <button data-key="1" class="number-button">1</button>
-      <button data-key="*" class="number-button">*</button>
+      <button data-key="*" class="op-button">*</button>
       
     </div>
     <div>
       <button data-key="C" class="number-button">C</button>
       <button data-key="0" class="number-button">0</button>
       <button data-key="." class="number-button">.</button>
-      <button data-key="/" class="number-button">/</button>
+      <button data-key="/" class="op-button">/</button>
     </div>
 
     <div>
-      <button data-key="C" class="number-button equal-btn">=</button>
+      <button data-key="c" class="equal-btn">=</button>
       </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
   <script>
+    var operation = '';
+    var op1 = 0, op2 = 0;
     // a simple calculator.
     let $inputNumber = $('#number-input')
-
-
+    
     $(".number-button").click(function(e) {
       const value = this.attributes['data-key'].value
       $inputNumber.val($inputNumber.val()+value)
     });
 
+    $(".op-button").click(function(){
+      const op = this.attributes['data-key'].value
 
+      switch (op){
+        case '-':
+          if(!operation){
+              operation = 'minus'
+              op1 = $inputNumber.val()
+              $inputNumber.val('')
+          }
+          else {
+            op2 = $inputNumber.val()
+            $inputNumber.val(window[operation](op1, op2))
+          }    
+      }
+    });
+
+    function minus(op1, op2){
+      return op1 - op2 
+    }
   </script>
 </body>
 </html>
