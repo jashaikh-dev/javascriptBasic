@@ -82,7 +82,6 @@
 
     $(".op-button").click(function(){
       const op = this.attributes['data-key'].value
-
       switch (op){
         case '-':
           if(!operation){
@@ -92,13 +91,32 @@
           }
           else {
             op2 = $inputNumber.val()
-            $inputNumber.val(window[operation](op1, op2))
-          }    
+            $inputNumber.val(window[operation](parseInt(op1), parseInt(op2)))
+          } 
+        case '+':  
+        if(!operation){
+              operation = 'plus'
+              op1 = $inputNumber.val()
+              $inputNumber.val('')
+          }
+          else {
+            op2 = $inputNumber.val()
+            $inputNumber.val(window[operation](parseInt(op1), parseInt(op2)))
+          }  
       }
     });
 
     function minus(op1, op2){
       return op1 - op2 
+    }
+    function plus(op1, op2) {
+      return op1 + op2
+    }
+    function mul(op1, op2) {
+      return op1 * op2
+    }
+    function div (op1, op2) {
+      return op1 / op2
     }
   </script>
 </body>
