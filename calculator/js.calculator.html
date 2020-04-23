@@ -93,6 +93,7 @@
             op2 = $inputNumber.val()
             $inputNumber.val(window[operation](parseInt(op1), parseInt(op2)))
           } 
+          break;
         case '+':  
         if(!operation){
               operation = 'plus'
@@ -103,6 +104,29 @@
             op2 = $inputNumber.val()
             $inputNumber.val(window[operation](parseInt(op1), parseInt(op2)))
           }  
+          break;
+        case '*':
+        if(!operation){
+              operation = 'mul'
+              op1 = $inputNumber.val()
+              $inputNumber.val('')
+          }
+          else {
+            op2 = $inputNumber.val()
+            $inputNumber.val(window[operation](parseInt(op1), parseInt(op2)))
+          }  
+          break;
+        case '/':
+        if(!operation){
+              operation = 'div'
+              op1 = $inputNumber.val()
+              $inputNumber.val('')
+          }
+          else {
+            op2 = $inputNumber.val()
+            $inputNumber.val(window[operation](parseInt(op1), parseInt(op2)))
+          }  
+          break;  
       }
     });
 
