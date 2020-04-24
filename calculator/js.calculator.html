@@ -65,7 +65,7 @@
     </div>
 
     <div>
-      <button data-key="c" class="equal-btn">=</button>
+      <button data-key="=" class="equal-btn">=</button>
       </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
@@ -78,6 +78,11 @@
     $(".number-button").click(function(e) {
       const value = this.attributes['data-key'].value
       $inputNumber.val($inputNumber.val()+value)
+    });
+
+    $(".equal-btn").click(function(){
+      op2 = $inputNumber.val()
+      $inputNumber.val(window[operation](parseInt(op1), parseInt(op2)))
     });
 
     $(".op-button").click(function(){
